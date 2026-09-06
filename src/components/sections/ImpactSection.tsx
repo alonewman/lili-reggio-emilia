@@ -41,6 +41,14 @@ export default function ImpactSection() {
           </h2>
         </Reveal>
 
+        <Reveal delay={0.1} className="mt-12 sm:mt-14">
+          <img
+            src="/images/impact-organizing.webp"
+            alt="A Lili organizando pilhas de documentos, com um emaranhado de fios desorganizados ao lado"
+            className="aspect-[16/10] w-full rounded-3xl object-cover sm:aspect-[21/9]"
+          />
+        </Reveal>
+
         <div className="mt-16 flex flex-col sm:mt-20">
           {PAIRS.map((pair, i) => (
             <Reveal

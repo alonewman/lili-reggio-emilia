@@ -1,5 +1,12 @@
 import Reveal from '../Reveal'
 
+const MOMENTS = [
+  { src: '/images/text-and-voice.webp', caption: 'Texto ou áudio, tanto faz' },
+  { src: '/images/handoff-secretary.webp', caption: 'Sabe a hora de passar adiante' },
+  { src: '/images/automation-tablet.webp', caption: 'Sempre operando por trás' },
+  { src: '/images/ecosystem-connected-alt.webp', caption: 'Conectada ao que a escola já usa' },
+]
+
 export default function CharacterSection() {
   return (
     <section
@@ -47,6 +54,21 @@ export default function CharacterSection() {
               visita.
             </p>
           </Reveal>
+        </div>
+      </div>
+
+      <div className="mx-auto mt-16 max-w-5xl sm:mt-20">
+        <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
+          {MOMENTS.map((moment, i) => (
+            <Reveal key={moment.src} delay={i * 0.08}>
+              <img
+                src={moment.src}
+                alt={moment.caption}
+                className="aspect-square w-full rounded-2xl object-cover"
+              />
+              <p className="mt-2.5 text-[13px] text-black/55 sm:text-[14px]">{moment.caption}</p>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

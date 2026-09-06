@@ -79,6 +79,14 @@ export default function DashboardSection() {
           </p>
         </Reveal>
 
+        <Reveal delay={0.15} className="mt-12 sm:mt-14">
+          <img
+            src="/images/dashboard-kanban.webp"
+            alt="Quadro com cartões representando cada etapa do atendimento, do primeiro contato à matrícula"
+            className="aspect-[16/10] w-full rounded-3xl object-cover sm:aspect-[21/9]"
+          />
+        </Reveal>
+
         <div className="mt-16 sm:mt-20">
           {FEATURES.map((feature, i) => (
             <Reveal

@@ -173,6 +173,14 @@ export default function EcosystemSection() {
           </p>
         </Reveal>
 
+        <Reveal delay={0.15} className="mt-12 sm:mt-14">
+          <img
+            src="/images/ecosystem-connected.webp"
+            alt="A Lili conectada por fios a um calendário, uma planilha, uma escrivaninha, o prédio da escola e um documento oficial"
+            className="aspect-[16/10] w-full rounded-3xl object-cover sm:aspect-[21/9]"
+          />
+        </Reveal>
+
         <div className="mt-16 sm:mt-20">
           <Reveal
             delay={0.2}
