@@ -8,13 +8,19 @@ const SENSITIVITY = 0.8
 const WATERMARK_X = 1695
 const EDGE_MARGIN = 24
 const OBJECT_POSITION_X = 0.7
+// Em telas estreitas (retrato) a Lili fica no centro do quadro (~52% da largura do vídeo).
+const OBJECT_POSITION_X_NARROW = 0.52
+
+function objectPositionX() {
+  return window.innerWidth < window.innerHeight ? OBJECT_POSITION_X_NARROW : OBJECT_POSITION_X
+}
 
 function computeWatermarkZoom(videoWidth: number, videoHeight: number) {
   const cw = window.innerWidth
   const ch = window.innerHeight
   const baseScale = Math.max(cw / videoWidth, ch / videoHeight)
   const overflow = videoWidth * baseScale - cw
-  const left0 = -overflow * OBJECT_POSITION_X
+  const left0 = -overflow * objectPositionX()
   const watermarkScreenX = WATERMARK_X * baseScale + left0
 
   if (watermarkScreenX <= 0 || watermarkScreenX >= cw) return 1
@@ -32,6 +38,7 @@ export default function BackgroundVideo() {
     if (!video) return
 
     const applyZoom = () => {
+      video.style.objectPosition = `${objectPositionX() * 100}% center`
       if (!video.videoWidth || !video.videoHeight) return
       const zoom = computeWatermarkZoom(video.videoWidth, video.videoHeight)
       video.style.transform = zoom > 1 ? `scale(${zoom})` : 'none'
